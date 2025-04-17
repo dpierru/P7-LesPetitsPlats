@@ -1,0 +1,188 @@
+/* Reset */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Css par défaut */
+li {
+    list-style: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+}
+
+header {
+    /* On met un dégradé du haut vers le bas, de transparent à noir */
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    height: 300px;
+}
+
+header h1 {
+    width: 100%;;
+}
+
+header h2 {
+    /* On met le texte en majuscule */
+    text-transform: uppercase;
+    font-size: smal;
+    width: 60%
+}
+
+header .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    height: 80%;
+}
+
+.search input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Affichage des recettes */
+.recipeList {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recipe {
+    width: 25%;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.recipe img {
+    /* On fit la largeur au conteneur avec une hauteur de 200px en gardant le ratio */
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recipe h3 {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.recipe p {
+    margin: 10px;
+    font-size: 12px;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.dropdownFilter {
+    display: flex;
+    gap: 20px;
+}
+
+.dropdown {
+    position: relative;
+    background-color: white;
+    width: 200px;
+    border-radius: 10px;
+    
+}
+/* Affichage des dropdowns */
+.dropdownClosed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    padding: 10px;
+}
+
+
+/* Quand le dropdown est ouvert (il n'a pas la classe .closed sur lui), on supprime le bas du border radius */
+.dropdown:not(.closed) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.closed .dropdownOpen {
+    display: none;
+}
+
+
+.dropdownOpen {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.dropdown .fleche {
+    transition: transform 0.2s;
+    user-select: none; /* Pour ne pas "selectionner" la flèche quand on clique dessus.*/
+}
+
+.dropdown.closed .fleche {
+    transform: rotate(180deg);
+}
+
+.dropdownContent {
+    width: 100%;
+}
+
+.dropdownOpen input {
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+}
+
+.dropdown li {
+    
+    cursor: pointer;
+    padding: 5px 20px; 
+    width: 100%;
+}
+
+.dropdown li:hover {
+    background-color: #FFD15B;
+}
+
+/****************** selected items *******************/
+.selectedItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.selectedItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFD15B;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.selectedItem .removeItem {
+    margin-left: 10px;
+    cursor: pointer;
+}
